@@ -7,11 +7,12 @@ from hashtables import (HashTable,
 
 
 def get_indices_of_item_weights(weights, length, limit):
-    ht = HashTable(16)
-
-    """
-    YOUR CODE HERE
-    """
+    ht = HashTable(length)
+    for i, weight in enumerate(weights):
+        i2 = hash_table_retrieve(ht, weight)
+        if i2 is not None:
+            return [i, i2]
+        hash_table_insert(ht, limit-weight, i)
 
     return None
 
